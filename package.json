@@ -20,6 +20,7 @@
 	"type": "module",
 	"dependencies": {
 		"clipboard-copy": "^4.0.1",
-		"marked": "^2.1.1"
+		"marked": "^2.1.1",
+		"svelte-seo": "^1.2.1"
 	}
 }

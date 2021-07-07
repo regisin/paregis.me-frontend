@@ -3,16 +3,19 @@
 		const res = await fetch(`https://paregisme.herokuapp.com/articles?slug=${page.params.slug}`);
 		const posts = await res.json();
 		const post = posts[0];
-		const host = page.host
-		return { props: { post, host } };
+		return { props: { post, page } };
 	}
 </script>
 
 <script>
+	import SvelteSeo from "svelte-seo";
 	import PageTitle from "$lib/components/PageTitle.svelte";
 	import marked from "marked";
 	export let post;
-	export let host;
+	export let page;
+
+	const host = page.host;
+	const path = page.path;
 
 	function dateFormatter(dateString) {
 		const date = new Date(dateString);
@@ -27,6 +30,12 @@
 <svelte:head>
   <title>{post.title} | {host}</title>
 </svelte:head>
+
+<SvelteSeo
+description="A short desciption goes here." 
+canonical="https://{host}{path}"
+/>
+
 
 <p>&lt; <a href="/">BACK TO HOME</a></p>
 <PageTitle title="{post.title}" />

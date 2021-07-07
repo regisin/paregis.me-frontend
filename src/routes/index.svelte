@@ -2,19 +2,19 @@
 	export async function load({ page, fetch }) {
 		const res = await fetch(`https://paregisme.herokuapp.com/articles`);
 		const posts = await res.json();
-    const host = page.host;
-		return { props: { posts, host } };
+		return { props: { posts, page } };
 	}
 </script>
 
 <script>
-  // import { dark } from '$lib/components/store/global.js';
-
+  import SvelteSeo from "svelte-seo";
   import PageTitle from "$lib/components/PageTitle.svelte";
   import marked from "marked";
 
   export let posts;
-  export let host;
+  export let page;
+
+  const host = page.host;
 
   function dateFormatter(dateString) {
     const date = new Date(dateString);
@@ -26,9 +26,25 @@
   } 
 </script>
 
-<svelte:head>
-  <title>{host}</title>
-</svelte:head>
+<SvelteSeo
+  title="Home | {host}"
+  description="Paulo's website." 
+  canonical="https://{host}"
+  openGraph={{
+    title: `Home | ${host}`,
+    description: `Paulo's website.`,
+    url: `https://${host}`,
+    type: `website`,
+    images: [
+      {
+        url: `https://${host}`,
+        width: 850,
+        height: 650,
+        alt: 'Og Image Alt'
+      }
+     ]
+  }}
+/>
 
 <PageTitle title="Latest" />
 
