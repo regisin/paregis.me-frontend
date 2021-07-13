@@ -1,19 +1,21 @@
 <script context="module">
 	export async function load({ fetch, page }) {
-		const res = await fetch(`https://paregisme.herokuapp.com/publications?slug=${page.params.slug}`);
-		const papers = await res.json();
-		const paper = papers[0];
-        const host = page.host;
-		return { props: { paper, host } };
+		const res = await fetch(`https://paregisme.herokuapp.com/publications/${page.params.slug}`);
+		const paper = await res.json();
+		return { props: { paper, page } };
 	}
 </script>
 
 <script>
+    import SvelteSeo from "svelte-seo";
     import PageTitle from "$lib/components/PageTitle.svelte";
     import copy from "clipboard-copy";
 	import marked from "marked";
 	export let paper;
-    export let host;
+    export let page;
+
+    const host = page.host;
+    const path = page.path;
 
 	function dateFormatter(dateString) {
 		const date = new Date(dateString);
@@ -25,9 +27,11 @@
 	}
 </script>
 
-<svelte:head>
-  <title>{paper.title} | {host}</title>
-</svelte:head>
+<SvelteSeo
+	title="{paper.title} | {host}"
+	description="{paper.abstract}" 
+	canonical="https://{host}{path}"
+/>
 
 <p>&lt; <a href="/">BACK TO HOME</a></p>
 <PageTitle title="{paper.title}" />

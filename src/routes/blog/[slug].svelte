@@ -1,8 +1,7 @@
 <script context="module">
 	export async function load({ fetch, page }) {
-		const res = await fetch(`https://paregisme.herokuapp.com/articles?slug=${page.params.slug}`);
-		const posts = await res.json();
-		const post = posts[0];
+		const res = await fetch(`http://paregisme.herokuapp.com/articles/${page.params.slug}`);
+		const post = await res.json();
 		return { props: { post, page } };
 	}
 </script>
@@ -27,15 +26,11 @@
 	} 
 </script>
 
-<svelte:head>
-  <title>{post.title} | {host}</title>
-</svelte:head>
-
 <SvelteSeo
-description="A short desciption goes here." 
-canonical="https://{host}{path}"
+	title="{post.title} | {host}"
+	description="{post.description}" 
+	canonical="https://{host}{path}"
 />
-
 
 <p>&lt; <a href="/">BACK TO HOME</a></p>
 <PageTitle title="{post.title}" />
@@ -69,7 +64,13 @@ canonical="https://{host}{path}"
 	:local(article) {
 		@apply py-6;
 	}
-	:local(article) p {
-		@apply text-xl;
+	:local(article) h1 {
+		@apply text-2xl font-bold pb-2;
+	}
+	:local(article) h2 {
+		@apply text-xl font-bold pb-2;
+	}
+	:local(article) h3 {
+		@apply text-lg font-bold pb-2;
 	}
 </style>

@@ -9,21 +9,26 @@
             return new Date(b.date) - new Date(a.date);
         });
 
-        const host = page.host;
-		return { props: { papers, host } };
+		return { props: { papers, page } };
 	}
 </script>
 
 <script>
+    import SvelteSeo from "svelte-seo";
     import PageTitle from '$lib/components/PageTitle.svelte';
     import marked from "marked";
 	export let papers;
-    export let host
+    export let page;
+
+    const host = page.host;
+    const path = page.path;
 </script>
 
-<svelte:head>
-  <title>Publications | {host}</title>
-</svelte:head>
+<SvelteSeo
+	title="Publications | {host}"
+	description="List of peer-reviewed publications." 
+	canonical="https://{host}{path}"
+/>
 
 <PageTitle title="Publications"/>
 

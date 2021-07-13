@@ -1,28 +1,34 @@
 <script context="module">
 	export async function load({ fetch, page }) {
 		const res = await fetch(`https://paregisme.herokuapp.com/teaching`);
-		// const courses = await res.json();
-        const courses = [
-
-        ];
-
-        const host = page.host;
-		return { props: { courses, host } };
+        const page_content = await res.json();
+		return { props: { page_content, page } };
 	}
 </script>
 
 <script>
+    import SvelteSeo from "svelte-seo";
+    import marked from "marked";
     import PageTitle from '$lib/components/PageTitle.svelte';
-	export let courses;
-    console.log(courses);
-    export let host;
+    export let page;
+    export let page_content;
+
+    const host = page.host;
+    const path = page.path;
 </script>
 
-<svelte:head>
-  <title>Teaching | {host}</title>
-</svelte:head>
+<SvelteSeo
+	title="Teaching | {host}"
+	description="{page_content.description}" 
+	canonical="https://{host}{path}"
+/>
 
 <PageTitle title="Teaching" />
+
+
+<article>
+    {@html marked(page_content.content) }
+</article>
 
 <h2>Souhtheastern Louisiana University</h2>
 <ul>

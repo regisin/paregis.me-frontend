@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ page, fetch }) {
-		const res = await fetch(`https://paregisme.herokuapp.com/articles`);
+		const res = await fetch(`http://paregisme.herokuapp.com/articles`);
 		const posts = await res.json();
 		return { props: { posts, page } };
 	}
@@ -28,22 +28,8 @@
 
 <SvelteSeo
   title="Home | {host}"
-  description="Paulo's website." 
+  description="Paulo's personal website." 
   canonical="https://{host}"
-  openGraph={{
-    title: `Home | ${host}`,
-    description: `Paulo's website.`,
-    url: `https://${host}`,
-    type: `website`,
-    images: [
-      {
-        url: `https://${host}`,
-        width: 850,
-        height: 650,
-        alt: 'Og Image Alt'
-      }
-     ]
-  }}
 />
 
 <PageTitle title="Latest" />
@@ -64,7 +50,7 @@
         <h2>
           <a href="/blog/{post.slug}">{post.title}</a>
 		    </h2>
-        <div class="div3">{@html marked(post.content)}</div>
+        <div class="div3">{post.description}</div>
 	  <div class="div4">
 		  <a href="/blog/{post.slug}">Read more</a>
 	  </div>

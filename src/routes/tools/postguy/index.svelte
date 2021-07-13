@@ -3,7 +3,7 @@
     let response;
 
     function sendRequest() {
-
+        $response="abc";
     }
 </script>
 
