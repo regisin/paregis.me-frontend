@@ -3,7 +3,7 @@
     let response;
 
     function sendRequest() {
-        $response="abc";
+        response="abc";
     }
 </script>
 
@@ -16,5 +16,5 @@
 
 <div>
 <h2>Response</h2>
-{$response}
+{response}
 </div>
