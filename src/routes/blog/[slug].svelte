@@ -1,8 +1,7 @@
 <script context="module">
 	import marked from "marked";
-
 	export async function load({ fetch, page }) {
-		const res = await fetch(`http://paregisme.herokuapp.com/articles/${page.params.slug}`);
+		const res = await fetch(`https://paregisme.herokuapp.com/articles/${page.params.slug}`);
 		let post = await res.json();
 		post.content = marked(post.content);
 		return { props: { post, page } };

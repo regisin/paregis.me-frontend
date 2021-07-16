@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ page, fetch }) {
-		const res = await fetch(`http://paregisme.herokuapp.com/articles`);
+		const res = await fetch(`https://paregisme.herokuapp.com/articles`);
 		const posts = await res.json();
 		return { props: { posts, page } };
 	}
