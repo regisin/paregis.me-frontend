@@ -1,8 +1,11 @@
 <script context="module">
+    import marked from "marked";
 	export async function load({ page, fetch }) {
 		const res = await fetch(`https://paregisme.herokuapp.com/publications`);
 		let papers = await res.json();
-
+        papers.forEach((paper) => {
+            paper.citation = marked(paper.citation);
+        });
         papers = papers.sort(function(a,b){
             // Turn your strings into dates, and then subtract them
             // to get a value that is either negative, positive, or zero.
@@ -16,7 +19,6 @@
 <script>
     import SvelteSeo from "svelte-seo";
     import PageTitle from '$lib/components/PageTitle.svelte';
-    import marked from "marked";
 	export let papers;
     export let page;
 
@@ -40,7 +42,7 @@
 {#each papers as paper }
 	{#if paper.publication_type.type == "Journal"}
 		<li>
-            <a href="/publications/{paper.slug}">{@html marked(paper.citation)}</a>
+            <a href="/publications/{paper.slug}">{@html paper.citation}</a>
             {#each paper.files as file}
                 <a href="{file.url}">
                     {#if file.mime == "application/pdf"}

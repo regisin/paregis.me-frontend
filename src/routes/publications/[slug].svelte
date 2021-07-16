@@ -1,7 +1,10 @@
 <script context="module">
+    import marked from "marked";
 	export async function load({ fetch, page }) {
 		const res = await fetch(`https://paregisme.herokuapp.com/publications/${page.params.slug}`);
-		const paper = await res.json();
+		let paper = await res.json();
+        paper.citation = marked(paper.citation);
+        paper.resources = marked(paper.resources);
 		return { props: { paper, page } };
 	}
 </script>
@@ -10,7 +13,7 @@
     import SvelteSeo from "svelte-seo";
     import PageTitle from "$lib/components/PageTitle.svelte";
     import copy from "clipboard-copy";
-	import marked from "marked";
+	
 	export let paper;
     export let page;
 
@@ -50,7 +53,7 @@
 
 <h2>Citation</h2>
 <pre>
-<code>{@html marked(paper.citation)}</code><button on:click={copy(paper.citation)}>
+<code>{@html paper.citation}</code><button on:click={copy(paper.citation)}>
         <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z"/>
             <rect x="8" y="8" width="12" height="12" rx="2"/>
@@ -84,7 +87,7 @@
 
 {#if paper.resources}
 <h2>Resources</h2>
-{@html marked(paper.resources)}
+{@html paper.resources}
 {/if}
 
 {#if paper.files.length > 0}

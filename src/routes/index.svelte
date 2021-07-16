@@ -9,7 +9,6 @@
 <script>
   import SvelteSeo from "svelte-seo";
   import PageTitle from "$lib/components/PageTitle.svelte";
-  import marked from "marked";
 
   export let posts;
   export let page;

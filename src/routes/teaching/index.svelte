@@ -1,17 +1,19 @@
 <script context="module">
+	import marked from "marked";
 	export async function load({ fetch, page }) {
 		const res = await fetch(`https://paregisme.herokuapp.com/teaching`);
-        const page_content = await res.json();
-		return { props: { page_content, page } };
+        let content = await res.json();
+		content = marked(content);
+		return { props: { content, page } };
 	}
 </script>
 
 <script>
     import SvelteSeo from "svelte-seo";
-    import marked from "marked";
+    
     import PageTitle from '$lib/components/PageTitle.svelte';
     export let page;
-    export let page_content;
+	export let content;
 
     const host = page.host;
     const path = page.path;
@@ -19,14 +21,14 @@
 
 <SvelteSeo
 	title="Teaching | {host}"
-	description="{page_content.seo.metaDescription}" 
+	description="{content.seo.metaDescription}" 
 	canonical="https://{host}{path}"
 />
 
 <PageTitle title="Teaching" />
 
 <article>
-    {@html marked(page_content.content) }
+    {@html content.content}
 </article>
 
 <style lang="postcss" global>
