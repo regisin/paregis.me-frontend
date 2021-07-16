@@ -3,7 +3,7 @@
 	export async function load({ fetch, page }) {
 		const res = await fetch(`https://paregisme.herokuapp.com/teaching`);
         let content = await res.json();
-		content = marked(content);
+		content.content = marked(content.content);
 		return { props: { content, page } };
 	}
 </script>

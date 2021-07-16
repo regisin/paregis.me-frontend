@@ -3,8 +3,11 @@
 	export async function load({ fetch, page }) {
 		const res = await fetch(`https://paregisme.herokuapp.com/publications/${page.params.slug}`);
 		let paper = await res.json();
+        console.log(paper);
         paper.citation = marked(paper.citation);
-        paper.resources = marked(paper.resources);
+        if (paper.resources) {
+            paper.resources = marked(paper.resources);
+        }
 		return { props: { paper, page } };
 	}
 </script>
