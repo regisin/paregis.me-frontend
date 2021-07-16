@@ -11,7 +11,6 @@
 
 <script>
 	import SvelteSeo from "svelte-seo";
-	import marked from "marked";
 
 	import PageTitle from "$lib/components/PageTitle.svelte";
 	export let page;
