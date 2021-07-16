@@ -1,7 +1,10 @@
 <script context="module">
+	import marked from "marked";
+
 	export async function load({ fetch, page }) {
 		const res = await fetch(`http://paregisme.herokuapp.com/articles/${page.params.slug}`);
-		const post = await res.json();
+		let post = await res.json();
+		post.content = marked(post.content);
 		return { props: { post, page } };
 	}
 </script>
@@ -9,7 +12,7 @@
 <script>
 	import SvelteSeo from "svelte-seo";
 	import PageTitle from "$lib/components/PageTitle.svelte";
-	import marked from "marked";
+	
 	export let post;
 	export let page;
 
@@ -45,7 +48,7 @@
 </dl>
 
 <article>
-	{@html marked(post.content)}
+	{@html post.content}
 </article>
 
 <style lang="postcss" global>
