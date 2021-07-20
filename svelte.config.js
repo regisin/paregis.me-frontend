@@ -6,7 +6,7 @@ const config = {
     extensions: ['.svelte'],
     kit: {
         adapter: adapter(),
-		target: '#svelte'
+		target: '#svelte',
 	},
     preprocess: [
         preprocess({

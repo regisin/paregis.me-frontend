@@ -1,4 +1,6 @@
 <script context="module">
+    import { dev } from "$app/env";
+
     export async function load({ page }) {
         const path = page.path;
         return {
@@ -12,6 +14,8 @@
 <script>
     import { dark } from '$lib/components/store/global.js';
 
+    import SvelteCsp from "$lib/components/SvelteCsp.svelte";
+
     import LightBulb from "$lib/components/LightBulb.svelte";
     import Navbar from "$lib/components/Navbar.svelte";
     import NavbarBrand from "$lib/components/NavbarBrand.svelte";
@@ -22,6 +26,15 @@
     import "../app.postcss";
     export let segment;
 </script>
+
+<SvelteCsp
+    defaultSrc={["'self'"]}
+    imgSrc={["'self'", "res.cloudinary.com"]}
+    styleSrc={["'self'", "'unsafe-inline'"]}
+    scriptSrc={["'self'", "'unsafe-inline'"]}
+    connectSrc={["'self'", "paregisme.herokuapp.com"]}
+    devMode={dev}
+/>
 
 <div class="theme" class:dark={$dark}>
     <header>

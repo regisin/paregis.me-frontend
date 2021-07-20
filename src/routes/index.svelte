@@ -50,9 +50,6 @@
           <a href="/blog/{post.slug}">{post.title}</a>
 		    </h2>
         <div class="div3">{post.description}</div>
-	  <div class="div4">
-		  <a href="/blog/{post.slug}">Read more</a>
-	  </div>
     </div>
     </article>
   </li>
@@ -102,8 +99,5 @@
             /* dark theme colors */
             dark:text-primary-light
             ;
-  }
-  :local(.div4) {
-    @apply pt-0 pb-4 leading-6 font-medium;
   }
 </style>
