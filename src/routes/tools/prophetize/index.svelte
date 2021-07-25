@@ -20,7 +20,8 @@
     const path = page.path;
 
     let symbol = "";
-
+    let state = "";
+    let invisible = true;
     let data = [
                 {x: [new Date(0)], y: [0]},
                 {x: [new Date(0)], y: [0]},
@@ -143,11 +144,10 @@
             },
         ]
     }
-
-    let state = "";
     async function handleClick() {
         state = "loading";
         data = await prophetize(symbol);
+        invisible = false;
         state = "";
     }
 </script>
@@ -166,5 +166,6 @@
 
 <span>{state}</span>
 
-<Plot {data} {layout} {config}/>    
-
+<div class:invisible>
+    <Plot {data} {layout} {config}/>    
+</div>
