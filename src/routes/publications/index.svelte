@@ -42,7 +42,7 @@
 {#each papers as paper }
 	{#if paper.publication_type.type == "Journal"}
 		<li>
-            <a href="/publications/{paper.slug}">{@html paper.citation}</a>
+            <a sveltekit:prefetch href="/publications/{paper.slug}">{@html paper.citation}</a>
             {#each paper.files as file}
                 <a href="{file.url}">
                     {#if file.mime == "application/pdf"}
@@ -85,7 +85,7 @@
 {#each papers as paper }
 	{#if paper.publication_type.type == "Conference"}
 		<li>
-            <a href="/publications/{paper.slug}">{@html marked(paper.citation)}</a>
+            <a sveltekit:prefetch href="/publications/{paper.slug}">{@html marked(paper.citation)}</a>
             {#each paper.files as file}
                 <a href="{file.url}">
                     {#if file.mime == "application/pdf"}

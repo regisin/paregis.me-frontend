@@ -3,7 +3,7 @@
     export let link;
 </script>
 <li>
-    <a class:active={segment === link} href="{link}">
+    <a sveltekit:prefetch class:active={segment === link} href="{link}">
         <slot></slot>
     </a>
 </li>

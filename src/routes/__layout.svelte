@@ -29,9 +29,9 @@
 
 <SvelteCsp
     defaultSrc={["'self'"]}
-    imgSrc={["'self'", "res.cloudinary.com"]}
+    imgSrc={["'self'", "data:", "blob:", "res.cloudinary.com"]}
     styleSrc={["'self'", "'unsafe-inline'"]}
-    scriptSrc={["'self'", "'unsafe-inline'"]}
+    scriptSrc={["'self'", "'unsafe-inline'", "'unsafe-eval'"]}
     connectSrc={["'self'", "paregisme.herokuapp.com"]}
     devMode={dev}
 />

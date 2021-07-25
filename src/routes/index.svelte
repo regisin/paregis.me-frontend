@@ -47,7 +47,7 @@
     </dl>
     <div class="div1">
         <h2>
-          <a href="/blog/{post.slug}">{post.title}</a>
+          <a sveltekit:prefetch href="/blog/{post.slug}">{post.title}</a>
 		    </h2>
         <div class="div3">{post.description}</div>
     </div>
