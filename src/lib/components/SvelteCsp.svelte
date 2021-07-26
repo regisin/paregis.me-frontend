@@ -26,7 +26,7 @@
      */
     export let devMode = true;
     if (devMode) {
-        connectSrc = [...connectSrc, "ws://localhost:*/"];
+        connectSrc = [...connectSrc, "ws://localhost:*/", "http://localhost:*/"];
     }
     export let fontSrc = undefined;
     export let objectSrc = undefined;

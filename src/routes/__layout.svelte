@@ -32,7 +32,7 @@
     imgSrc={["'self'", "data:", "blob:", "res.cloudinary.com"]}
     styleSrc={["'self'", "'unsafe-inline'"]}
     scriptSrc={["'self'", "'unsafe-inline'", "'unsafe-eval'"]}
-    connectSrc={["'self'", "paregisme.herokuapp.com"]}
+    connectSrc={["'self'", "paregisme.herokuapp.com", "paregisme-prophet.herokuapp.com"]}
     devMode={dev}
 />
 

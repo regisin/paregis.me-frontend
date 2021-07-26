@@ -4,11 +4,6 @@
 	}
 </script>
 
-
-
-
-
-
 <script>
     import SvelteSeo from "svelte-seo";
     import PageTitle from '$lib/components/PageTitle.svelte';
@@ -79,15 +74,24 @@
     async function prophetize(symbol) {
         layout.showlegend = true;
         layout.title.text = `Historical and trend price for ${symbol}`;
-        const res = await fetch(`../a-${symbol}.json`);
-        const raw = await res.json();
+        const res = await fetch(`https://paregisme-prophet.herokuapp.com/prophetize`, {
+			method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+			body: JSON.stringify({
+				symbol
+			})
+        });
 
-        const x = Object.values(raw.ds).map(d => new Date(d));
+        const json = await res.json();
+
+        const x = Object.values(json.forecast.ds).map(d => new Date(d));
 
         return [
             {
                 x,
-                y: Object.values(raw.yhat),
+                y: Object.values(json.forecast.yhat),
                 type: 'scatter',
                 name: 'Y hat',
                 mode: 'lines',
@@ -98,7 +102,7 @@
             },
             {
                 x,
-                y: Object.values(raw.yhat_upper),
+                y: Object.values(json.forecast.yhat_upper),
                 type: 'scatter',
                 name: 'Upper',
                 mode: 'lines',
@@ -110,7 +114,7 @@
             },
             {
                 x,
-                y: Object.values(raw.yhat_lower),
+                y: Object.values(json.forecast.yhat_lower),
                 type: 'scatter',
                 name: 'AREA',
                 mode: 'lines',
@@ -121,7 +125,7 @@
             },
             {
                 x,
-                y: Object.values(raw.yhat_lower),
+                y: Object.values(json.forecast.yhat_lower),
                 type: 'scatter',
                 name: 'Lower',
                 mode: 'lines',
@@ -133,7 +137,7 @@
             },
             {
                 x,
-                y: Object.values(raw.y),
+                y: Object.values(json.forecast.y),
                 type: 'scatter',
                 name: 'Close',
                 mode: 'markers',
@@ -166,6 +170,6 @@
 
 <span>{state}</span>
 
-<div class:invisible>
+<div class:invisible class:hidden={invisible}>
     <Plot {data} {layout} {config}/>    
 </div>
