@@ -27,6 +27,8 @@
     export let segment;
 </script>
 
+
+
 <SvelteCsp
     defaultSrc={["'self'"]}
     imgSrc={["'self'", "data:", "blob:", "res.cloudinary.com"]}

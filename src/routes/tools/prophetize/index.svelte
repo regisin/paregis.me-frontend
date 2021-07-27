@@ -5,6 +5,7 @@
 </script>
 
 <script>
+    import Datepicker from 'svelte-calendar';
     import SvelteSeo from "svelte-seo";
     import PageTitle from '$lib/components/PageTitle.svelte';
     import Plot from "$lib/components/Plot.svelte";
@@ -15,6 +16,14 @@
     const path = page.path;
 
     let symbol = "";
+    let today = new Date();
+    let start = new Date();
+    start.setDate(start.getDate()-5);;
+    let end = new Date;
+    let periods = 10;
+    
+    
+    
     let state = "";
     let invisible = true;
     let data = [
@@ -80,7 +89,10 @@
                 'Content-Type': 'application/json',
             },
 			body: JSON.stringify({
-				symbol
+				symbol,
+                start,
+                end,
+                periods,
 			})
         });
 
@@ -149,10 +161,18 @@
         ]
     }
     async function handleClick() {
-        state = "loading";
+        state = "loading...";
         data = await prophetize(symbol);
         invisible = false;
         state = "";
+    }
+
+    $: {
+        if (!(start < end) || !(end <= today)) {
+            state = "invalid dates!";
+        } else {
+            state = "";
+        }
     }
 </script>
 
@@ -165,10 +185,32 @@
 <PageTitle title="Prophetize" />
 
 <label for="symbol">Ticker symbol: </label>
-<input type="text" name="symbol" bind:value="{symbol}" />
+<input type="text" id="symbol" name="symbol" bind:value="{symbol}" />
+
+<br>
+
+<label for="periods">Periods (>= 1):</label>
+<input type="number" id="periods" name="periods" min="1" bind:value="{periods}">
+
+<br>
+
+Start:
+<Datepicker bind:selected={start} start={new Date(0)} end={new Date()} />
+
+<br>
+
+End:
+<Datepicker bind:selected={end} start={new Date(0)} end={new Date()} />
+
+<br>
+
 <button on:click|preventDefault="{handleClick}">Prophetize</button>
 
+<br>
+
 <span>{state}</span>
+
+<br>
 
 <div class:invisible class:hidden={invisible}>
     <Plot {data} {layout} {config}/>    
