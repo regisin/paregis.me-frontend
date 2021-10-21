@@ -10,7 +10,7 @@ export async function get(req, _) {
     return {
         headers: {
             'Cache-Control': 'max-age=0, s-maxage=3600',
-            'Content-Type': 'application/rss+xml',
+            'Content-Type': 'application/xml',
           },
         body: render(req.headers.host, posts)
     }
