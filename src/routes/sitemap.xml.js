@@ -1,4 +1,4 @@
-export async function get(req, res) {
+export async function get(req, _) {
     let posts = await fetch(`https://paregisme.herokuapp.com/articles`);
     posts = await posts.json();
     let publications = await fetch(`https://paregisme.herokuapp.com/publications`);
