@@ -9,9 +9,6 @@
 </script>
 
 <script>
-    import SvelteSeo from "svelte-seo";
-    
-    import PageTitle from '$lib/components/PageTitle.svelte';
     export let page;
 	export let content;
 
@@ -19,13 +16,30 @@
     const path = page.path;
 </script>
 
-<SvelteSeo
-	title="Teaching | {host}"
-	description="{content.seo.metaDescription}" 
-	canonical="https://{host}{path}"
-/>
+<svelte:head>
+  <meta name="robots" content="index,follow">
+  <meta name="googlebot" content="index,follow">
+  <meta name="author" content="PA Regis">
+  <meta name="keywords" content="networking, wireless, web development, python, fastapi, javascript, svelte, sveltekit, programming, computer programming, software engineering" />
 
-<PageTitle title="Teaching" />
+  <meta name="description" content="{content.seo.metaDescription}">
+  <meta property="og:description" content="{content.seo.metaDescription}" />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="paregis">
+  <meta property="og:site_name" content="{host}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+
+  <meta property="og:url" content="https://{host}{path}">
+  <link rel="canonical" href="https://{host}{path}">
+
+  <title>Teaching | {host}</title>
+  <meta property="og:title" content="Teaching | {host}">
+  <meta name="twitter:title" content="Teaching | {host}">
+</svelte:head>
+
+<h1>Teaching</h1>
 
 <article>
     {@html content.content}

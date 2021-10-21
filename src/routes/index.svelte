@@ -12,9 +12,6 @@
 </script>
 
 <script>
-  import SvelteSeo from "svelte-seo";
-  import PageTitle from "$lib/components/PageTitle.svelte";
-
   export let posts;
   export let page;
 
@@ -30,13 +27,30 @@
   } 
 </script>
 
-<SvelteSeo
-  title="Home | {host}"
-  description="Paulo's personal website." 
-  canonical="https://{host}"
-/>
+<svelte:head>
+  <meta name="robots" content="index,follow">
+  <meta name="googlebot" content="index,follow">
+  <meta name="author" content="PA Regis">
+  <meta name="keywords" content="networking, wireless, web development, python, fastapi, javascript, svelte, sveltekit, programming, computer programming, software engineering" />
 
-<PageTitle title="Latest" />
+  <meta name="description" content="PA Regis: yet another personal blog website about various topics.">
+  <meta property="og:description" content="PA Regis: yet another personal blog website about various topics." />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="paregis">
+  <meta property="og:site_name" content="{host}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+
+  <meta property="og:url" content="https://{host}">
+  <link rel="canonical" href="https://{host}">
+
+  <title>Home | {host}</title>
+  <meta property="og:title" content="Home | {host}">
+  <meta name="twitter:title" content="Home | {host}">
+</svelte:head>
+
+<h1>Latest</h1>
 
 <ul>
   {#each posts as post}

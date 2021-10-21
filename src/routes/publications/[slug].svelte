@@ -12,8 +12,6 @@
 </script>
 
 <script>
-    import SvelteSeo from "svelte-seo";
-    import PageTitle from "$lib/components/PageTitle.svelte";
     import copy from "clipboard-copy";
 	
 	export let paper;
@@ -32,14 +30,31 @@
 	}
 </script>
 
-<SvelteSeo
-	title="{paper.title} | {host}"
-	description="{paper.abstract}" 
-	canonical="https://{host}{path}"
-/>
+<svelte:head>
+  <meta name="robots" content="index,follow">
+  <meta name="googlebot" content="index,follow">
+  <meta name="author" content="PA Regis">
+  <meta name="keywords" content="networking, wireless, web development, python, fastapi, javascript, svelte, sveltekit, programming, computer programming, software engineering" />
+
+  <meta name="description" content="{paper.abstract}">
+  <meta property="og:description" content="{paper.abstract}" />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="paregis">
+  <meta property="og:site_name" content="{host}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+
+  <meta property="og:url" content="https://{host}{path}">
+  <link rel="canonical" href="https://{host}{path}">
+
+  <title>{paper.title} | {host}</title>
+  <meta property="og:title" content="{paper.title} | {host}">
+  <meta name="twitter:title" content="{paper.title} | {host}">
+</svelte:head>
 
 <p>&lt; <a href="/">BACK TO HOME</a></p>
-<PageTitle title="{paper.title}" />
+<h1>{paper.title}</h1>
 
 <dl>
 	<dt>Published &nbsp;</dt>
