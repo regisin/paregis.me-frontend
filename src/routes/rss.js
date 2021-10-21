@@ -12,7 +12,7 @@ export async function get(req, _) {
             'Cache-Control': 'max-age=0, s-maxage=3600',
             'Content-Type': 'application/rss+xml',
           },
-        body: render(req.headers.host, posts, publications)
+        body: render(req.headers.host, posts)
     }
 }
 
