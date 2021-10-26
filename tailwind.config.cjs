@@ -40,11 +40,15 @@ const config = {
 				'darkest': '#7a0000',
 			},
 			info: {
-				'lightest': '#d4e9fa',
-				'light': '#cbe3f6',
-				'DEFAULT': '#1f6dad',
-				'dark': '#18578b',
-				'darkest': '#124269',
+				'lightest': '#f4f8fe',
+				'light': '#aacaf3',
+				'DEFAULT': '#2a7ae2',
+				'dark': '#205caa',
+				'darkest': '#194988',
+			},
+			gradient : {
+				'first': '#dedc00',
+				'second': '#ac0b00'
 			},
 			white: colors.white, 
 		}

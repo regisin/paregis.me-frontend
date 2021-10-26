@@ -10,6 +10,9 @@
 </script>
 
 <script>
+	import { hero } from "$lib/components/store/global.js";
+	$hero = {title: 'About'}
+
 	export let page;
 	export let content;
 
@@ -39,8 +42,6 @@
   <meta property="og:title" content="About | {host}">
   <meta name="twitter:title" content="About | {host}">
 </svelte:head>
-
-<h1>About</h1>
 
 <article>
 	{@html content.content}

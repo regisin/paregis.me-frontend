@@ -1,80 +1,88 @@
 <script context="module">
-    import { dev } from "$app/env";
+  import { dev } from "$app/env";
 
-    export async function load({ page }) {
-        const path = page.path;
-        return {
-            props:{
-                segment: path
-            }
-        }
-    }
+  export async function load({ page }) {
+    const path = page.path;
+    return {
+      props: { path },
+    };
+  }
 </script>
 
 <script>
-    import { dark } from '$lib/components/store/global.js';
+  import { dark, hero } from "$lib/components/store/global.js";
 
-    import SvelteCsp from "$lib/components/SvelteCsp.svelte";
+  import SvelteCsp from "$lib/components/SvelteCsp.svelte";
+  import LightBulb from "$lib/components/LightBulb.svelte";
+  import Header from "$lib/components/Header.svelte";
+  import Hero from "$lib/components/Hero.svelte";
+  import Footer from "$lib/components/Footer.svelte";
 
-    import LightBulb from "$lib/components/LightBulb.svelte";
-    import Navbar from "$lib/components/Navbar.svelte";
-    import NavbarBrand from "$lib/components/NavbarBrand.svelte";
-    import NavbarLinkContainer from "$lib/components/NavbarLinkContainer.svelte";
-    import NavbarLink from "$lib/components/NavbarLink.svelte";
-    import Footer from "$lib/components/Footer.svelte";
+  import "../app.postcss";
+  export let path;
 
-    import "../app.postcss";
-    export let segment;
+  const brand = { url: "/", title: "paregis.me" };
+  const items = [
+    { url: "/about", title: "About" },
+    { url: "/teaching", title: "Teaching" },
+    { url: "/publications", title: "Publications" },
+    { url: "/contact", title: "Contact" },
+  ];
 </script>
 
-
-
 <SvelteCsp
-    defaultSrc={["'self'"]}
-    imgSrc={["'self'", "data:", "blob:", "res.cloudinary.com"]}
-    styleSrc={["'self'", "'unsafe-inline'"]}
-    scriptSrc={["'self'", "'unsafe-inline'", "'unsafe-eval'"]}
-    connectSrc={["'self'", "paregisme.herokuapp.com", "paregisme-prophet.herokuapp.com"]}
-    devMode={dev}
+  defaultSrc={["'self'"]}
+  imgSrc={["'self'", "data:", "blob:", "res.cloudinary.com"]}
+  styleSrc={["'self'", "'unsafe-inline'"]}
+  scriptSrc={["'self'", "'unsafe-inline'", "'unsafe-eval'"]}
+  connectSrc={[
+    "'self'",
+    "paregisme.herokuapp.com",
+    "paregisme-prophet.herokuapp.com",
+  ]}
+  devMode={dev}
 />
 
-<div class="theme" class:dark={$dark}>
-    <header>
-        <Navbar>
-            <LightBulb/>
-            <NavbarBrand link="/">paregis.me</NavbarBrand>
-            <NavbarLinkContainer>
-                <NavbarLink {segment} link='/about'>About</NavbarLink>
-                <NavbarLink {segment} link='/teaching'>Teaching</NavbarLink>
-                <NavbarLink {segment} link='/publications'>Publications</NavbarLink>
-                <NavbarLink {segment} link='/contact'>Contact</NavbarLink>
-            </NavbarLinkContainer>
-        </Navbar>
-    </header>
-    <main>
-        <!--Container-->
-        <div>
-            <slot></slot>
-        </div>
-    </main>
-    <Footer />
-    
+<div id="theme" class:dark={$dark}>
+  {#if dev}<LightBulb />{/if}
+  <Header {brand} {items} {path} />
+  <main>
+    {#if $hero}
+    <Hero hero={$hero} />  
+    {/if}
+    <!--Container-->
+    <div id="container">
+      <slot />
+    </div>
+  </main>
+  <Footer />
 </div>
 
-
 <style lang="postcss" global>
-    :local(.theme) {
-        @apply flex flex-col min-h-screen;
-    }
-    :local(main) {
-        @apply flex-grow overflow-auto
+  h1 {
+    @apply text-3xl font-bold pb-2 pt-6;
+  }
+  h2 {
+    @apply text-xl font-bold pb-2 pt-6;
+  }
+  h3 {
+    @apply text-lg font-bold pb-2 pt-6;
+  }
+
+  #theme {
+    @apply flex flex-col min-h-screen;
+  }
+  main {
+    @apply flex-grow overflow-auto
                 /* light theme colors */
-                bg-primary-lightest text-primary
+                text-primary
                 /* dark theme colors */
-                dark:bg-primary-dark dark:text-primary-light
-        ;
-    }
-    :local(main) :local(div) {
-        @apply container mx-auto py-14 md:pt-32 md:max-w-3xl;
-    }
+                dark:bg-primary-dark dark:text-primary-light;
+  }
+  main a {
+    @apply hover:underline text-info;
+  }
+  #container {
+    @apply container mx-auto py-10 md:max-w-3xl;
+  }
 </style>
