@@ -71,6 +71,11 @@
   article ul {
     @apply list-disc;
   }
+  article pre {
+    @apply overflow-x-auto p-6 text-sm leading-snug
+                border rounded-xl
+                text-primary-light bg-primary-dark;
+  }
 
   #theme {
     @apply flex flex-col min-h-screen;
