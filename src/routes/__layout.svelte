@@ -68,6 +68,9 @@
   h3 {
     @apply text-lg font-bold pb-2 pt-6;
   }
+  article ul {
+    @apply list-disc;
+  }
 
   #theme {
     @apply flex flex-col min-h-screen;

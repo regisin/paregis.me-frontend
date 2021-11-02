@@ -66,7 +66,7 @@
   {#each posts as post}
     <li>
       <article>
-        <div class="div1">
+        <div>
           <h2>
             <a sveltekit:prefetch href="/blog/{post.slug}">{post.title}</a>
           </h2>
@@ -84,7 +84,7 @@
   :local(article) {
     @apply space-y-2 pt-4 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline;
   }
-  :local(.div1) {
+  :local(article) div {
     @apply space-y-5 py-0 xl:col-span-3;
   }
 </style>
