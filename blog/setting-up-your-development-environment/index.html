@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<title>Setting up your development environment | undefined</title><!-- HTML_TAG_START --><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: res.cloudinary.com; connect-src 'self' paregisme.herokuapp.com paregisme-prophet.herokuapp.com; form-action 'self'; base-uri 'self'"><!-- HTML_TAG_END --><meta name="robots" content="index,follow" data-svelte="svelte-1gw5p99"><meta name="googlebot" content="index,follow" data-svelte="svelte-1gw5p99"><meta name="author" content="PA Regis" data-svelte="svelte-1gw5p99"><meta name="keywords" content="networking, wireless, web development, python, fastapi, javascript, svelte, sveltekit, programming, computer programming, software engineering" data-svelte="svelte-1gw5p99"><meta name="description" data-svelte="svelte-1gw5p99"><meta property="og:description" data-svelte="svelte-1gw5p99"><meta name="twitter:card" content="summary" data-svelte="svelte-1gw5p99"><meta name="twitter:site" content="paregis" data-svelte="svelte-1gw5p99"><meta property="og:site_name" data-svelte="svelte-1gw5p99"><meta property="og:locale" content="en_US" data-svelte="svelte-1gw5p99"><meta property="og:type" content="article" data-svelte="svelte-1gw5p99"><meta property="og:url" content="https://undefined/blog/setting-up-your-development-environment" data-svelte="svelte-1gw5p99"><link rel="canonical" href="https://undefined/blog/setting-up-your-development-environment" data-svelte="svelte-1gw5p99"><meta property="og:title" content="Setting up your development environment | undefined" data-svelte="svelte-1gw5p99"><meta name="twitter:title" content="Setting up your development environment | undefined" data-svelte="svelte-1gw5p99">
+
+		
+
+		<link rel="modulepreload" href="/_app/start-d04d0f6c.js">
+		<link rel="modulepreload" href="/_app/chunks/vendor-19221ad6.js">
+		<link rel="modulepreload" href="/_app/pages/__layout.svelte-143b109d.js">
+		<link rel="modulepreload" href="/_app/chunks/global-a3fc5bb2.js">
+		<link rel="modulepreload" href="/_app/pages/blog/[slug].svelte-bdeeb845.js">
+		<link rel="stylesheet" href="/_app/assets/start-464e9d0a.css">
+		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-be8e0590.css">
+
+		<script type="module">
+			import { start } from "/_app/start-d04d0f6c.js";
+			start({
+				target: document.querySelector("#svelte"),
+				paths: {"base":"","assets":""},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/_app/pages/__layout.svelte-143b109d.js"),
+						import("/_app/pages/blog/[slug].svelte-bdeeb845.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "\u002Fblog\u002Fsetting-up-your-development-environment",
+						query: new URLSearchParams(""),
+						params: {slug:"setting-up-your-development-environment"}
+					}
+				}
+			});
+		</script>
+	</head>
+	<body id="svelte">
+		
+
+
+
+
+<div id="theme">
+  <header class="svelte-13slc3h"><div><a href="/">paregis.me</a>
+    <nav><a sveltekit:prefetch href="/about" class="svelte-13slc3h">About</a><a sveltekit:prefetch href="/teaching" class="svelte-13slc3h">Teaching</a><a sveltekit:prefetch href="/publications" class="svelte-13slc3h">Publications</a><a sveltekit:prefetch href="/contact" class="svelte-13slc3h">Contact</a></nav></div>
+</header>
+  <main><div id="hero" class="svelte-1h2h7mv"><div><h1>Performance of Adaptive Beam Nulling in Multihop Ad-Hoc networks under Jamming</h1></div>
+</div>
+    
+    <div id="container">
+
+<p>&lt; <a href="/">BACK TO HOME</a></p>
+
+
+<time datetime="2021-11-02T19:05:50.850Z">November 2, 2021</time>
+
+<article><!-- HTML_TAG_START --><h2 id="table-of-content">Table of content</h2>
+<ul>
+<li><a href="#table-of-content">Table of content</a></li>
+<li><a href="#recap">Recap</a></li>
+<li><a href="#first-steps">First steps</a></li>
+<li><a href="#project-structure">Project structure</a><ul>
+<li><a href="#folder">Folder</a></li>
+<li><a href="#buildpy"><code>build.py</code></a></li>
+<li><a href="#datapy"><code>data.py</code></a></li>
+<li><a href="#_site"><code>_site/</code></a></li>
+<li><a href="#templates"><code>templates/</code></a></li>
+<li><a href="#jinja2">Jinja2</a></li>
+</ul>
+</li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+<h2 id="recap">Recap</h2>
+<p>This is the first post of the static website development series in which I&#39;ll walk over the process of building a static portfolio website. In this post, we will set up our project on our local computer. So let&#39;s get to it.</p>
+<h2 id="first-steps">First steps</h2>
+<p>First of all, we will be using <code>python</code> to create our website. It doesn&#39;t matter if you are on Linux, Windows, macOS. As long as you can install and run python scripts, you are good to go.</p>
+<p>I will be using python version 3. I won&#39;t go over the process of installing it, but you can follow the instructions from the official <a href="https://www.python.org">python website</a>. There are numerous tutorials online about installing <code>python3</code> alongside <code>python2</code>, be mindful of that.</p>
+<p>You will also need to have <code>pip</code>, a package manager for python. Since the goal of this series is to make the development workflow as simple as possible, we will not be covering python environments (pipenv, venv, etc).</p>
+<h2 id="project-structure">Project structure</h2>
+<p>The initial structure of the project looks like this:</p>
+<pre><code class="language-bash">/{project_source_folder}/
+    |
+    |-- _site/
+    |-- templates/
+    |-- build.py
+    |-- data.py
+</code></pre>
+<h3 id="folder">Folder</h3>
+<p>I want to create a folder on my computer where I want to put everything related to the project in. Everything about the website will be inside this folder, or its subfolders. For example, <code>C:/static_website</code>.</p>
+<h3 id="buildpy"><code>build.py</code></h3>
+<p>The <code>build.py</code> script will be the one and only script that I will need to execute to generate the final static files.</p>
+<h3 id="datapy"><code>data.py</code></h3>
+<p>This file is where we will store our data in an organized way. You will have to put some thought into how you want to structure your data. But as you will see in other videos, it&#39;s not a big deal if you need to change it. This file will provide the data to be used in the build script, so not a lotl of logic stuff will go here, only data structures, or more specifically, lists and dictionaries.</p>
+<h3 id="_site"><code>_site/</code></h3>
+<p>We will make the <code>build.py</code> script output, spit out, all the files into this <code>_site/</code> subfolder. The <code>_site/</code> folder is what we call the build folder. After running the script, the folder can be used to directly serve the website.</p>
+<h3 id="templates"><code>templates/</code></h3>
+<p>The templates folder is where we will have all the <code>html</code> pages. The templates will be like a blank page, it will have some spaces where you will tell that there should be some information injected into it. Templates are generic, and do not depend on the content. So if you create a new blog post or portifolio project to your website, you do not need to even touch the template files.</p>
+<p>These are the files you will modify in order to make your site prettier, they don&#39;t contain any data from the site. The build script will use the data that we will provide, and the template files, and combine both into the final files (save them in the build folder).</p>
+<h3 id="jinja2">Jinja2</h3>
+<p>We will use the <code>jinja2</code> template engine. It is a python package. In short, it reads a text file that looks very similar to an html file, and fills out some black spaces with the information we pass to it. To install it you can open the bash terminal and use pip:
+<code>pip install jinja2</code></p>
+<h2 id="summary">Summary</h2>
+<p>Now that you have the initial (NOT FINAL) setup, we can create the first page. In this post we:</p>
+<ul>
+<li>Created a project folder</li>
+<li>Created a build script</li>
+<li>Created a build directory</li>
+<li>Created a template folder</li>
+<li>Created a data store file</li>
+<li>Installed the Jinja2 template engine</li>
+</ul>
+<!-- HTML_TAG_END --></article></div></main>
+  <footer class="svelte-1ij36zr"><div><a target="_blank" href="https://paregis.me" rel="noopener" alt="This website"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></a>
+    <a target="_blank" href="https://twitter.com/paregis" rel="noopener" alt="Twitter profile"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"></path></svg></a>
+    <a target="_blank" href="https://github.com/regisin" rel="noopener" alt="GitHub repositories"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"></path></svg></a>
+    <a target="_blank" href="https://www.linkedin.com/in/regisin/" rel="noopener" alt="LinkedIn profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a></div>
+</footer>
+</div>
+
+
+
+			<script type="application/json" data-type="svelte-data" data-url="https://paregisme.herokuapp.com/articles/setting-up-your-development-environment">{"status":200,"statusText":"OK","headers":{"connection":"close","content-length":"6473","content-type":"application/json; charset=utf-8","date":"Wed, 03 Nov 2021 16:19:28 GMT","server":"Cowboy","strict-transport-security":"max-age=31536000; includeSubDomains","vary":"Origin","via":"1.1 vegur","x-frame-options":"SAMEORIGIN","x-powered-by":"Strapi <strapi.io>","x-response-time":"23ms"},"body":"{\"id\":3,\"title\":\"Setting up your development environment\",\"content\":\"## Table of content\\n\\n- [Table of content](#table-of-content)\\n- [Recap](#recap)\\n- [First steps](#first-steps)\\n- [Project structure](#project-structure)\\n  - [Folder](#folder)\\n  - [`build.py`](#buildpy)\\n  - [`data.py`](#datapy)\\n  - [`_site\u002F`](#_site)\\n  - [`templates\u002F`](#templates)\\n  - [Jinja2](#jinja2)\\n- [Summary](#summary)\\n\\n## Recap\\n\\nThis is the first post of the static website development series in which I'll walk over the process of building a static portfolio website. In this post, we will set up our project on our local computer. So let's get to it.\\n\\n## First steps\\n\\nFirst of all, we will be using `python` to create our website. It doesn't matter if you are on Linux, Windows, macOS. As long as you can install and run python scripts, you are good to go.\\n\\nI will be using python version 3. I won't go over the process of installing it, but you can follow the instructions from the official [python website](https:\u002F\u002Fwww.python.org). There are numerous tutorials online about installing `python3` alongside `python2`, be mindful of that.\\n\\nYou will also need to have `pip`, a package manager for python. Since the goal of this series is to make the development workflow as simple as possible, we will not be covering python environments (pipenv, venv, etc).\\n\\n## Project structure\\n\\nThe initial structure of the project looks like this:\\n\\n```bash\\n\u002F{project_source_folder}\u002F\\n    |\\n    |-- _site\u002F\\n    |-- templates\u002F\\n    |-- build.py\\n    |-- data.py\\n```\\n\\n### Folder\\n\\nI want to create a folder on my computer where I want to put everything related to the project in. Everything about the website will be inside this folder, or its subfolders. For example, `C:\u002Fstatic_website`.\\n\\n### `build.py`\\n\\nThe `build.py` script will be the one and only script that I will need to execute to generate the final static files.\\n\\n### `data.py`\\n\\nThis file is where we will store our data in an organized way. You will have to put some thought into how you want to structure your data. But as you will see in other videos, it's not a big deal if you need to change it. This file will provide the data to be used in the build script, so not a lotl of logic stuff will go here, only data structures, or more specifically, lists and dictionaries.\\n\\n### `_site\u002F`\\n\\nWe will make the `build.py` script output, spit out, all the files into this `_site\u002F` subfolder. The `_site\u002F` folder is what we call the build folder. After running the script, the folder can be used to directly serve the website.\\n\\n### `templates\u002F`\\n\\nThe templates folder is where we will have all the `html` pages. The templates will be like a blank page, it will have some spaces where you will tell that there should be some information injected into it. Templates are generic, and do not depend on the content. So if you create a new blog post or portifolio project to your website, you do not need to even touch the template files.\\n\\nThese are the files you will modify in order to make your site prettier, they don't contain any data from the site. The build script will use the data that we will provide, and the template files, and combine both into the final files (save them in the build folder).\\n\\n### Jinja2\\n\\nWe will use the `jinja2` template engine. It is a python package. In short, it reads a text file that looks very similar to an html file, and fills out some black spaces with the information we pass to it. To install it you can open the bash terminal and use pip:\\n`pip install jinja2`\\n\\n## Summary\\n\\nNow that you have the initial (NOT FINAL) setup, we can create the first page. In this post we:\\n\\n- Created a project folder\\n- Created a build script\\n- Created a build directory\\n- Created a template folder\\n- Created a data store file\\n- Installed the Jinja2 template engine\\n\\n\\n\",\"category\":null,\"published_at\":\"2021-11-02T19:05:50.850Z\",\"created_at\":\"2021-11-02T19:04:57.231Z\",\"updated_at\":\"2021-11-03T16:10:44.100Z\",\"slug\":\"setting-up-your-development-environment\",\"description\":\"This is the first post of the static website development series in which I'll walk over the process of building a static portfolio website. In this post, we will set up our project on our local computer.\",\"image\":{\"id\":33,\"name\":\"static website-banner.png\",\"alternativeText\":\"Blog banner showing a keyboard\",\"caption\":\"Blog banner showing a keyboard\",\"width\":2240,\"height\":1260,\"formats\":{\"large\":{\"ext\":\".png\",\"url\":\"https:\u002F\u002Fres.cloudinary.com\u002Fregisin\u002Fimage\u002Fupload\u002Fv1634068413\u002Flarge_static_website_banner_344609283f.png\",\"hash\":\"large_static_website_banner_344609283f\",\"mime\":\"image\u002Fpng\",\"name\":\"large_static website-banner.png\",\"path\":null,\"size\":1024.24,\"width\":1000,\"height\":563,\"provider_metadata\":{\"public_id\":\"large_static_website_banner_344609283f\",\"resource_type\":\"image\"}},\"small\":{\"ext\":\".png\",\"url\":\"https:\u002F\u002Fres.cloudinary.com\u002Fregisin\u002Fimage\u002Fupload\u002Fv1634068415\u002Fsmall_static_website_banner_344609283f.png\",\"hash\":\"small_static_website_banner_344609283f\",\"mime\":\"image\u002Fpng\",\"name\":\"small_static website-banner.png\",\"path\":null,\"size\":283.49,\"width\":500,\"height\":281,\"provider_metadata\":{\"public_id\":\"small_static_website_banner_344609283f\",\"resource_type\":\"image\"}},\"medium\":{\"ext\":\".png\",\"url\":\"https:\u002F\u002Fres.cloudinary.com\u002Fregisin\u002Fimage\u002Fupload\u002Fv1634068414\u002Fmedium_static_website_banner_344609283f.png\",\"hash\":\"medium_static_website_banner_344609283f\",\"mime\":\"image\u002Fpng\",\"name\":\"medium_static website-banner.png\",\"path\":null,\"size\":605.13,\"width\":750,\"height\":422,\"provider_metadata\":{\"public_id\":\"medium_static_website_banner_344609283f\",\"resource_type\":\"image\"}},\"thumbnail\":{\"ext\":\".png\",\"url\":\"https:\u002F\u002Fres.cloudinary.com\u002Fregisin\u002Fimage\u002Fupload\u002Fv1634068412\u002Fthumbnail_static_website_banner_344609283f.png\",\"hash\":\"thumbnail_static_website_banner_344609283f\",\"mime\":\"image\u002Fpng\",\"name\":\"thumbnail_static website-banner.png\",\"path\":null,\"size\":73.85,\"width\":245,\"height\":138,\"provider_metadata\":{\"public_id\":\"thumbnail_static_website_banner_344609283f\",\"resource_type\":\"image\"}}},\"hash\":\"static_website_banner_344609283f\",\"ext\":\".png\",\"mime\":\"image\u002Fpng\",\"size\":1865.17,\"url\":\"https:\u002F\u002Fres.cloudinary.com\u002Fregisin\u002Fimage\u002Fupload\u002Fv1634068411\u002Fstatic_website_banner_344609283f.png\",\"previewUrl\":null,\"provider\":\"cloudinary\",\"provider_metadata\":{\"public_id\":\"static_website_banner_344609283f\",\"resource_type\":\"image\"},\"created_at\":\"2021-10-12T19:53:35.476Z\",\"updated_at\":\"2021-10-12T19:53:35.487Z\"}}"}</script>
+		
+	</body>
+</html>

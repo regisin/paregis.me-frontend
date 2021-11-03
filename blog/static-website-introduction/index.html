@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<title>Static website: Introduction | undefined</title><!-- HTML_TAG_START --><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: res.cloudinary.com; connect-src 'self' paregisme.herokuapp.com paregisme-prophet.herokuapp.com; form-action 'self'; base-uri 'self'"><!-- HTML_TAG_END --><meta name="robots" content="index,follow" data-svelte="svelte-1gw5p99"><meta name="googlebot" content="index,follow" data-svelte="svelte-1gw5p99"><meta name="author" content="PA Regis" data-svelte="svelte-1gw5p99"><meta name="keywords" content="networking, wireless, web development, python, fastapi, javascript, svelte, sveltekit, programming, computer programming, software engineering" data-svelte="svelte-1gw5p99"><meta name="description" data-svelte="svelte-1gw5p99"><meta property="og:description" data-svelte="svelte-1gw5p99"><meta name="twitter:card" content="summary" data-svelte="svelte-1gw5p99"><meta name="twitter:site" content="paregis" data-svelte="svelte-1gw5p99"><meta property="og:site_name" data-svelte="svelte-1gw5p99"><meta property="og:locale" content="en_US" data-svelte="svelte-1gw5p99"><meta property="og:type" content="article" data-svelte="svelte-1gw5p99"><meta property="og:url" content="https://undefined/blog/static-website-introduction" data-svelte="svelte-1gw5p99"><link rel="canonical" href="https://undefined/blog/static-website-introduction" data-svelte="svelte-1gw5p99"><meta property="og:title" content="Static website: Introduction | undefined" data-svelte="svelte-1gw5p99"><meta name="twitter:title" content="Static website: Introduction | undefined" data-svelte="svelte-1gw5p99">
+
+		
+
+		<link rel="modulepreload" href="/_app/start-d04d0f6c.js">
+		<link rel="modulepreload" href="/_app/chunks/vendor-19221ad6.js">
+		<link rel="modulepreload" href="/_app/pages/__layout.svelte-143b109d.js">
+		<link rel="modulepreload" href="/_app/chunks/global-a3fc5bb2.js">
+		<link rel="modulepreload" href="/_app/pages/blog/[slug].svelte-bdeeb845.js">
+		<link rel="stylesheet" href="/_app/assets/start-464e9d0a.css">
+		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-be8e0590.css">
+
+		<script type="module">
+			import { start } from "/_app/start-d04d0f6c.js";
+			start({
+				target: document.querySelector("#svelte"),
+				paths: {"base":"","assets":""},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/_app/pages/__layout.svelte-143b109d.js"),
+						import("/_app/pages/blog/[slug].svelte-bdeeb845.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "\u002Fblog\u002Fstatic-website-introduction",
+						query: new URLSearchParams(""),
+						params: {slug:"static-website-introduction"}
+					}
+				}
+			});
+		</script>
+	</head>
+	<body id="svelte">
+		
+
+
+
+
+<div id="theme">
+  <header class="svelte-13slc3h"><div><a href="/">paregis.me</a>
+    <nav><a sveltekit:prefetch href="/about" class="svelte-13slc3h">About</a><a sveltekit:prefetch href="/teaching" class="svelte-13slc3h">Teaching</a><a sveltekit:prefetch href="/publications" class="svelte-13slc3h">Publications</a><a sveltekit:prefetch href="/contact" class="svelte-13slc3h">Contact</a></nav></div>
+</header>
+  <main><div id="hero" class="svelte-1h2h7mv"><div><h1>Setting up your development environment</h1></div>
+</div>
+    
+    <div id="container">
+
+<p>&lt; <a href="/">BACK TO HOME</a></p>
+
+
+<time datetime="2021-10-12T19:53:53.720Z">October 12, 2021</time>
+
+<article><!-- HTML_TAG_START --><h2 id="table-of-content">Table of content</h2>
+<ul>
+<li><a href="#table-of-content">Table of content</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#what-to-expect">What to expect</a></li>
+<li><a href="#what-is-a-static-website">What is a static website?</a></li>
+<li><a href="#so-why-generate-static-pages-for-a-website">So why generate static pages for a website?</a></li>
+<li><a href="#objective">Objective</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>I decided to write down a series of short(ish) blog posts show how to build a personal website (and host it!) using some common and simple tools. This series is mainly targeted for beginner programmers, but there will be some cool stuff that even advanced ones could benefit from. This will be a long series of posts, feel free to skip back and forth as you wish.</p>
+<p>In this first post I will introduce some basic concepts and layout the motivation.</p>
+<h2 id="what-to-expect">What to expect</h2>
+<p>In this series I will show how to build a static website using <code>python</code> and <code>html</code>. It will be very useful if you already have some basic knowledge of both.</p>
+<p>I will show how I created my personal website (an earlier version of it) and hosted it for free on <a href="httpos://github.com">GitHub</a>. I will also show to automate the development process so it&#39;s easier to update it with new projects and content. In a nutshell you will learn how to create a static website generator, and as a bonus it will have a continuous deployment workflow.</p>
+<h2 id="what-is-a-static-website">What is a static website?</h2>
+<p>A static website is one that does not generate it&#39;s pages dynamically. For example, you know when you post something on social media and a few seconds later your friends can see it in their own feed the thing you just posted? That is a dynamic website. It requires some powerful servers to run those. You need a database, a webserver.. and probably a ton of other types of tools.</p>
+<p>A static website, on the other hand, is a collection of files that a browser can fetch from a server. It does not change dynamically, if you want it to be updated, you will have to change those files yourself and replace them on the server, manually.</p>
+<p>In this series I will make a static website with SOME level of automation. The pages will be generated offline before being served and not in real time like the social media example.</p>
+<h2 id="so-why-generate-static-pages-for-a-website">So why generate static pages for a website?</h2>
+<p>It may seem counter-intuitive to even consider creating a static website after all these years with so many advanced tools and platforms out there. But I make the point that not all websites need to have a powerful backend and even a proper database. There are many use cases where dynamic content is not required at all, and having static pages gets the message across and saves valuable time that could be used in more meaningful tasks.</p>
+<p>Personal websites are the perfect example. It&#39;s a personal website, it&#39;s not a full fledged web application. You might have a personal blog on your website, and that&#39;s totally cool. But let me ask you, how often do you update a blog? How often do you finish a new project to add to your personal portfolio? For most people, not that often.</p>
+<h2 id="objective">Objective</h2>
+<p>With this series we will learn how to use <code>python</code> and <code>html</code> to build a personal website. There are other static website generators out there, such as <a href="https://jekyllrb.com/">Jekyll</a>, but the purpose of this series is to make your life even easier, without having to learn yet another tool (Jekyll) to create the website. For this workshop, all you need to know is some basic <code>html</code> and <code>python</code>. I will use <a href="httpos://github.com">GitHub</a> to host the files online, and use <del>Travis-CI</del> <del>CircleCI</del> <a href="https://github.com/features/actions">GitHub Actions</a> to simplify the publishing process when you update the website contents.</p>
+<h2 id="summary">Summary</h2>
+<p>This series targets folks that already have some knowledge of how the web works. You know a little bit of <code>python</code>, how to create a script, how to load and read text files from a script. I will cover:</p>
+<ul>
+<li>Setting up the development environment</li>
+<li>Creating <code>html</code> templates using <code>Jinja2</code></li>
+<li>Create a data store (not data base!)</li>
+<li>Combining templates and data from the store to create pseudo dynamic pages</li>
+<li>Publish the website to GitHub using Actions</li>
+</ul>
+<!-- HTML_TAG_END --></article></div></main>
+  <footer class="svelte-1ij36zr"><div><a target="_blank" href="https://paregis.me" rel="noopener" alt="This website"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></a>
+    <a target="_blank" href="https://twitter.com/paregis" rel="noopener" alt="Twitter profile"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"></path></svg></a>
+    <a target="_blank" href="https://github.com/regisin" rel="noopener" alt="GitHub repositories"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"></path></svg></a>
+    <a target="_blank" href="https://www.linkedin.com/in/regisin/" rel="noopener" alt="LinkedIn profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a></div>
+</footer>
+</div>
+
+
+
+			<script type="application/json" data-type="svelte-data" data-url="https://paregisme.herokuapp.com/articles/static-website-introduction">{"status":200,"statusText":"OK","headers":{"connection":"close","content-length":"6869","content-type":"application/json; charset=utf-8","date":"Wed, 03 Nov 2021 16:19:28 GMT","server":"Cowboy","strict-transport-security":"max-age=31536000; includeSubDomains","vary":"Origin","via":"1.1 vegur","x-frame-options":"SAMEORIGIN","x-powered-by":"Strapi <strapi.io>","x-response-time":"18ms"},"body":"{\"id\":2,\"title\":\"Static website: Introduction\",\"content\":\"## Table of content\\n\\n- [Table of content](#table-of-content)\\n- [Introduction](#introduction)\\n- [What to expect](#what-to-expect)\\n- [What is a static website?](#what-is-a-static-website)\\n- [So why generate static pages for a website?](#so-why-generate-static-pages-for-a-website)\\n- [Objective](#objective)\\n- [Summary](#summary)\\n\\n## Introduction\\n\\nI decided to write down a series of short(ish) blog posts show how to build a personal website (and host it!) using some common and simple tools. This series is mainly targeted for beginner programmers, but there will be some cool stuff that even advanced ones could benefit from. This will be a long series of posts, feel free to skip back and forth as you wish.\\n\\nIn this first post I will introduce some basic concepts and layout the motivation.\\n\\n## What to expect\\n\\nIn this series I will show how to build a static website using `python` and `html`. It will be very useful if you already have some basic knowledge of both.\\n\\nI will show how I created my personal website (an earlier version of it) and hosted it for free on [GitHub](httpos:\u002F\u002Fgithub.com). I will also show to automate the development process so it's easier to update it with new projects and content. In a nutshell you will learn how to create a static website generator, and as a bonus it will have a continuous deployment workflow.\\n\\n## What is a static website?\\n\\nA static website is one that does not generate it's pages dynamically. For example, you know when you post something on social media and a few seconds later your friends can see it in their own feed the thing you just posted? That is a dynamic website. It requires some powerful servers to run those. You need a database, a webserver.. and probably a ton of other types of tools.\\n\\nA static website, on the other hand, is a collection of files that a browser can fetch from a server. It does not change dynamically, if you want it to be updated, you will have to change those files yourself and replace them on the server, manually.\\n\\nIn this series I will make a static website with SOME level of automation. The pages will be generated offline before being served and not in real time like the social media example.\\n\\n## So why generate static pages for a website?\\n\\nIt may seem counter-intuitive to even consider creating a static website after all these years with so many advanced tools and platforms out there. But I make the point that not all websites need to have a powerful backend and even a proper database. There are many use cases where dynamic content is not required at all, and having static pages gets the message across and saves valuable time that could be used in more meaningful tasks.\\n\\nPersonal websites are the perfect example. It's a personal website, it's not a full fledged web application. You might have a personal blog on your website, and that's totally cool. But let me ask you, how often do you update a blog? How often do you finish a new project to add to your personal portfolio? For most people, not that often.\\n\\n## Objective\\n\\nWith this series we will learn how to use `python` and `html` to build a personal website. There are other static website generators out there, such as [Jekyll](https:\u002F\u002Fjekyllrb.com\u002F), but the purpose of this series is to make your life even easier, without having to learn yet another tool (Jekyll) to create the website. For this workshop, all you need to know is some basic `html` and `python`. I will use [GitHub](httpos:\u002F\u002Fgithub.com) to host the files online, and use ~~Travis-CI~~ ~~CircleCI~~ [GitHub Actions](https:\u002F\u002Fgithub.com\u002Ffeatures\u002Factions) to simplify the publishing process when you update the website contents.\\n\\n## Summary\\n\\nThis series targets folks that already have some knowledge of how the web works. You know a little bit of `python`, how to create a script, how to load and read text files from a script. I will cover:\\n\\n- Setting up the development environment\\n- Creating `html` templates using `Jinja2`\\n- Create a data store (not data base!)\\n- Combining templates and data from the store to create pseudo dynamic pages\\n- Publish the website to GitHub using Actions\\n\",\"category\":{\"id\":1,\"name\":\"Tutorial\",\"published_at\":\"2021-04-14T17:17:17.176Z\",\"created_at\":\"2021-04-14T17:16:58.539Z\",\"updated_at\":\"2021-07-12T20:45:42.467Z\",\"slug\":\"tutorial\"},\"published_at\":\"2021-10-12T19:53:53.720Z\",\"created_at\":\"2021-10-12T16:08:22.301Z\",\"updated_at\":\"2021-10-12T19:53:53.738Z\",\"slug\":\"static-website-introduction\",\"description\":\"Introducing a new tutorial series about designing a static website and hosting it on GitHub.\",\"image\":{\"id\":33,\"name\":\"static website-banner.png\",\"alternativeText\":\"Blog banner showing a keyboard\",\"caption\":\"Blog banner showing a keyboard\",\"width\":2240,\"height\":1260,\"formats\":{\"large\":{\"ext\":\".png\",\"url\":\"https:\u002F\u002Fres.cloudinary.com\u002Fregisin\u002Fimage\u002Fupload\u002Fv1634068413\u002Flarge_static_website_banner_344609283f.png\",\"hash\":\"large_static_website_banner_344609283f\",\"mime\":\"image\u002Fpng\",\"name\":\"large_static website-banner.png\",\"path\":null,\"size\":1024.24,\"width\":1000,\"height\":563,\"provider_metadata\":{\"public_id\":\"large_static_website_banner_344609283f\",\"resource_type\":\"image\"}},\"small\":{\"ext\":\".png\",\"url\":\"https:\u002F\u002Fres.cloudinary.com\u002Fregisin\u002Fimage\u002Fupload\u002Fv1634068415\u002Fsmall_static_website_banner_344609283f.png\",\"hash\":\"small_static_website_banner_344609283f\",\"mime\":\"image\u002Fpng\",\"name\":\"small_static website-banner.png\",\"path\":null,\"size\":283.49,\"width\":500,\"height\":281,\"provider_metadata\":{\"public_id\":\"small_static_website_banner_344609283f\",\"resource_type\":\"image\"}},\"medium\":{\"ext\":\".png\",\"url\":\"https:\u002F\u002Fres.cloudinary.com\u002Fregisin\u002Fimage\u002Fupload\u002Fv1634068414\u002Fmedium_static_website_banner_344609283f.png\",\"hash\":\"medium_static_website_banner_344609283f\",\"mime\":\"image\u002Fpng\",\"name\":\"medium_static website-banner.png\",\"path\":null,\"size\":605.13,\"width\":750,\"height\":422,\"provider_metadata\":{\"public_id\":\"medium_static_website_banner_344609283f\",\"resource_type\":\"image\"}},\"thumbnail\":{\"ext\":\".png\",\"url\":\"https:\u002F\u002Fres.cloudinary.com\u002Fregisin\u002Fimage\u002Fupload\u002Fv1634068412\u002Fthumbnail_static_website_banner_344609283f.png\",\"hash\":\"thumbnail_static_website_banner_344609283f\",\"mime\":\"image\u002Fpng\",\"name\":\"thumbnail_static website-banner.png\",\"path\":null,\"size\":73.85,\"width\":245,\"height\":138,\"provider_metadata\":{\"public_id\":\"thumbnail_static_website_banner_344609283f\",\"resource_type\":\"image\"}}},\"hash\":\"static_website_banner_344609283f\",\"ext\":\".png\",\"mime\":\"image\u002Fpng\",\"size\":1865.17,\"url\":\"https:\u002F\u002Fres.cloudinary.com\u002Fregisin\u002Fimage\u002Fupload\u002Fv1634068411\u002Fstatic_website_banner_344609283f.png\",\"previewUrl\":null,\"provider\":\"cloudinary\",\"provider_metadata\":{\"public_id\":\"static_website_banner_344609283f\",\"resource_type\":\"image\"},\"created_at\":\"2021-10-12T19:53:35.476Z\",\"updated_at\":\"2021-10-12T19:53:35.487Z\"}}"}</script>
+		
+	</body>
+</html>
