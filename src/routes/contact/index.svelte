@@ -63,7 +63,7 @@
     </svg>
   </div>
   <div>
-    <h2>Dr. Paulo Alexandre Regis</h2>
+    <h2>Paulo Alexandre Regis, Ph.D.</h2>
     <p>Assistant Professor of Computer Science</p>
     <p>Southeastern Louisiana University</p>
     <p>Computer Science and Technology Building</p>
