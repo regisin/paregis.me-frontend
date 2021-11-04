@@ -11,11 +11,16 @@
 
 <script>
 	import { hero } from "$lib/components/store/global.js";
-	$hero = {title: 'About'}
 
 	export let page;
 	export let content;
 
+	$hero = {
+		title: 'About',
+		image: content.seo.shareImage.formats.large.url
+	}
+
+	
 	const host = page.host;
 	const path = page.path;
 </script>

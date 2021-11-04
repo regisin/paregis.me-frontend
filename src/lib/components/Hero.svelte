@@ -14,7 +14,7 @@
   :local(#hero) {
     @apply flex flex-wrap h-48 text-primary-lightest
     bg-gradient-to-tr 
-  from-primary-darkest via-primary to-primary-lightest;
+    from-primary-darkest via-primary to-primary-lightest;
   }
   :local(#hero) div {
     @apply relative container mx-auto md:max-w-3xl;
