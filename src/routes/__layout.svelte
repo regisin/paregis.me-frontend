@@ -19,6 +19,7 @@
   import Footer from "$lib/components/Footer.svelte";
 
   import "../app.postcss";
+
   export let path;
 
   const brand = { url: "/", title: "paregis.me" };
@@ -39,9 +40,20 @@
     "'self'",
     "paregisme.herokuapp.com",
     "paregisme-prophet.herokuapp.com",
+    "*.google.com"
   ]}
   devMode={dev}
 />
+
+<svelte:head>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "81nimqyzjl");
+  </script>
+</svelte:head>
 
 <div id="theme" class:dark={$dark}>
   {#if dev}<LightBulb />{/if}
