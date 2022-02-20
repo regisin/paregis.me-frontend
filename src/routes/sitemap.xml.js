@@ -37,36 +37,36 @@ xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
     </url>
     <url>
         <loc>https://${website}/about</loc>
-        <changefreq>website</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://${website}/contact</loc>
-        <changefreq>website</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://${website}/teaching</loc>
-        <changefreq>website</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://${website}/publications</loc>
-        <changefreq>website</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 ${posts
     .map(post =>`
     <url>
         <loc>https://${website}/blog/${post.slug}</loc>
-        <changefreq>website</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>`)}
 ${publications
     .map(pub =>`
     <url>
         <loc>https://${website}/publications/${pub.slug}</loc>
-        <changefreq>website</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>`)}
 </urlset>`;
