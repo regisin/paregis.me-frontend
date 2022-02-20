@@ -1,5 +1,5 @@
 <script context="module">
-  export async function load({ page, fetch }) {
+  export async function load({ url, fetch }) {
     const res = await fetch(`https://paregisme.herokuapp.com/articles`);
     let posts = await res.json();
     posts = posts.sort(function (a, b) {
@@ -7,7 +7,7 @@
       // to get a value that is either negative, positive, or zero.
       return new Date(b.published_at) - new Date(a.published_at);
     });
-    return { props: { posts, page } };
+    return { props: { posts, url } };
   }
 </script>
 
@@ -16,9 +16,9 @@
   $hero = { title: "Latest" };
 
   export let posts;
-  export let page;
+  export let url;
 
-  const host = page.host;
+  const host = url.hostname;
 
   function dateFormatter(dateString) {
     const date = new Date(dateString);

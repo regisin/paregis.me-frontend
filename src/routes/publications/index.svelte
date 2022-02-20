@@ -1,6 +1,6 @@
 <script context="module">
-  import marked from "marked";
-  export async function load({ page, fetch }) {
+  import { marked } from "marked";
+  export async function load({ url, fetch }) {
     const res = await fetch(`https://paregisme.herokuapp.com/publications`);
     let papers = await res.json();
     papers.forEach((paper) => {
@@ -12,7 +12,7 @@
       return new Date(b.date) - new Date(a.date);
     });
 
-    return { props: { papers, page } };
+    return { props: { papers, url } };
   }
 </script>
 
@@ -21,10 +21,10 @@
   $hero = { title: "Publications" };
 
   export let papers;
-  export let page;
+  export let url;
 
-  const host = page.host;
-  const path = page.path;
+  const host = url.hostname;
+  const path = url.pathname;
 </script>
 
 <svelte:head>

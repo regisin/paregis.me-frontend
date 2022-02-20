@@ -1,4 +1,6 @@
-export async function get(req, _) {
+import { website } from '$lib/info';
+
+export async function get() {
     let posts = await fetch(`https://paregisme.herokuapp.com/articles`);
     posts = await posts.json();
     let publications = await fetch(`https://paregisme.herokuapp.com/publications`);
@@ -14,7 +16,7 @@ export async function get(req, _) {
             'Cache-Control': 'max-age=0, s-maxage=3600',
             'Content-Type': 'application/xml',
           },
-        body: render(req.headers.host, posts, publications)
+        body: render(website, posts, publications)
     }
 }
 
@@ -30,41 +32,41 @@ xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 >
     <url>
         <loc>https://${website}</loc>
-        <changefreq>daily</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://${website}/about</loc>
-        <changefreq>daily</changefreq>
+        <changefreq>website</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://${website}/contact</loc>
-        <changefreq>daily</changefreq>
+        <changefreq>website</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://${website}/teaching</loc>
-        <changefreq>daily</changefreq>
+        <changefreq>website</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://${website}/publications</loc>
-        <changefreq>daily</changefreq>
+        <changefreq>website</changefreq>
         <priority>0.7</priority>
     </url>
 ${posts
     .map(post =>`
     <url>
         <loc>https://${website}/blog/${post.slug}</loc>
-        <changefreq>daily</changefreq>
+        <changefreq>website</changefreq>
         <priority>0.7</priority>
     </url>`)}
 ${publications
     .map(pub =>`
     <url>
         <loc>https://${website}/publications/${pub.slug}</loc>
-        <changefreq>daily</changefreq>
+        <changefreq>website</changefreq>
         <priority>0.7</priority>
     </url>`)}
 </urlset>`;

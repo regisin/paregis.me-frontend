@@ -1,18 +1,18 @@
 <script context="module">
-	import marked from "marked";
+	import { marked } from "marked";
 
-	export async function load({ fetch, page }) {
+	export async function load({ fetch, url }) {
 		const res = await fetch(`https://paregisme.herokuapp.com/about`);
 		let content = await res.json();
 		content.content = marked(content.content);
-		return { props: { page , content } };
+		return { props: { url , content } };
 	}
 </script>
 
 <script>
 	import { hero } from "$lib/components/store/global.js";
 
-	export let page;
+	export let url;
 	export let content;
 
 	$hero = {
@@ -21,8 +21,8 @@
 	}
 
 	
-	const host = page.host;
-	const path = page.path;
+	const host = url.hostname;
+	const path = url.pathname;
 </script>
 
 <svelte:head>

@@ -1,15 +1,15 @@
 <script context="module">
-  import marked from "marked";
-  export async function load({ fetch, page }) {
+  import { marked } from "marked";
+  export async function load({ fetch, params, url }) {
     const res = await fetch(
-      `https://paregisme.herokuapp.com/publications/${page.params.slug}`
+      `https://paregisme.herokuapp.com/publications/${params.slug}`
     );
     let paper = await res.json();
     paper.citation = marked(paper.citation);
     if (paper.resources) {
       paper.resources = marked(paper.resources);
     }
-    return { props: { paper, page } };
+    return { props: { paper, url } };
   }
 </script>
 
@@ -19,10 +19,10 @@
   import copy from "clipboard-copy";
 
   export let paper;
-  export let page;
+  export let url;
 
-  const host = page.host;
-  const path = page.path;
+  const host = url.hostname;
+  const path = url.pathname;
 
   $hero = {
     title: paper.title,

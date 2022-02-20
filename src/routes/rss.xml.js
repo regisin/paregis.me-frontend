@@ -1,4 +1,6 @@
-export async function get(req, _) {
+import { website } from '$lib/info';
+
+export async function get() {
     let posts = await fetch(`https://paregisme.herokuapp.com/articles`);
     posts = await posts.json();
 
@@ -12,7 +14,7 @@ export async function get(req, _) {
             'Cache-Control': 'max-age=0, s-maxage=3600',
             'Content-Type': 'application/xml',
           },
-        body: render(req.headers.host, posts)
+        body: render(website, posts)
     }
 }
 

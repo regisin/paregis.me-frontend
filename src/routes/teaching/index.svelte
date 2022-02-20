@@ -1,10 +1,10 @@
 <script context="module">
-  import marked from "marked";
-  export async function load({ fetch, page }) {
+  import { marked } from "marked";
+  export async function load({ fetch, url }) {
     const res = await fetch(`https://paregisme.herokuapp.com/teaching`);
     let content = await res.json();
     content.content = marked(content.content);
-    return { props: { content, page } };
+    return { props: { content, url } };
   }
 </script>
 
@@ -12,11 +12,11 @@
   import { hero } from "$lib/components/store/global.js";
   $hero = { title: "Teaching" };
 
-  export let page;
+  export let url;
   export let content;
 
-  const host = page.host;
-  const path = page.path;
+  const host = url.hostname;
+  const path = url.pathname;
 </script>
 
 <svelte:head>

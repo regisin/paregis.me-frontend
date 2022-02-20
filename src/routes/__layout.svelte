@@ -1,10 +1,9 @@
 <script context="module">
   import { dev } from "$app/env";
 
-  export async function load({ page }) {
-    const path = page.path;
+  export async function load({ url }) {
     return {
-      props: { path },
+      props: { url },
     };
   }
 </script>
@@ -20,7 +19,8 @@
 
   import "../app.postcss";
 
-  export let path;
+  export let url;
+  let path = url.pathame;
 
   const brand = { url: "/", title: "paregis.me" };
   const items = [

@@ -1,12 +1,12 @@
 <script context="module">
-  import marked from "marked";
-  export async function load({ fetch, page }) {
+  import { marked } from "marked";
+  export async function load({ fetch, url, params }) {
     const res = await fetch(
-      `https://paregisme.herokuapp.com/articles/${page.params.slug}`
+      `https://paregisme.herokuapp.com/articles/${params.slug}`
     );
     let post = await res.json();
     post.content = marked(post.content);
-    return { props: { post, page } };
+    return { props: { post, url } };
   }
 </script>
 
@@ -14,10 +14,10 @@
   import { hero } from "$lib/components/store/global.js";
 
   export let post;
-  export let page;
+  export let url;
 
-  const host = page.host;
-  const path = page.path;
+  const host = url.hostname;
+  const path = url.pathname;
 
   $hero = {
 	  title: post.title,

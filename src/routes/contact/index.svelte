@@ -1,6 +1,6 @@
 <script context="module">
-  export async function load({ page }) {
-    return { props: { page } };
+  export async function load({ url }) {
+    return { props: { url } };
   }
 </script>
 
@@ -8,9 +8,9 @@
   import { hero } from "$lib/components/store/global.js";
   $hero = { title: "Contact" };
 
-  export let page;
-  const host = page.host;
-  const path = page.path;
+  export let url;
+  const host = url.hostname;
+  const path = url.pathname;
 </script>
 
 <svelte:head>

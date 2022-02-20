@@ -1,12 +1,12 @@
 <script context="module">
-    export async function load({ page }) {
-        const path = page.path;
-        const url = "/";
-        console.log(url);
-            return {
-                status: 301,
-                redirect: url,
-            };
+    export async function load({ url }) {
+        const path = url.pathname;
+        const home = "/";
+        console.log(home, path);
+        return {
+            status: 301,
+            redirect: home,
+        };
     }
 </script>
 

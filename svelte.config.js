@@ -8,13 +8,12 @@ const config = {
     extensions: ['.svelte'],
     kit: {
         adapter: adapter(),
-		target: '#svelte',
+        // if you are not using the static adapter and
+        // you don't want prerendering, remove this section
+        prerender: {
+            entries: ['*', '/sitemap.xml', '/rss.xml']
+        },
 	},
-    // if you are not using the static adapter and
-    // you don't want prerendering, remove this section
-    prerender: {
-        entries: ['*', '/sitemap.xml', '/rss.xml']
-    },
     preprocess: [
         preprocess({
             "postcss": true
